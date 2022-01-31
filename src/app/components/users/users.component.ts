@@ -8,55 +8,63 @@ import { User } from './../../models/User';
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  showExtended: boolean = true;
+  loaded: boolean = false;
 
   constructor() { 
     this.users = [];
   }
 
   ngOnInit(): void {
-    this.users = [
-      {
-        firstName: 'John',
-        lastName: 'Doe',
-        age: 30,
-        address: {
-          street: '50 Main st',
-          city: 'Boston',
-          state: 'Ma'
-        }
-      },
-      {
-        firstName: 'Kevin',
-        lastName: 'Johnson',
-        age: 34,
-        address: {
-          street: '20 School st',
-          city: 'Lynn',
-          state: 'MA'
-        }
-      },
-      {
-        firstName: 'Karen',
-        lastName: 'Williams',
-        age: 26,
-        address: {
-          street: '55 Mill st',
-          city: 'Miami',
-          state: 'FL'
-        }
-      }
-    ]
+    this.showExtended = false;
 
-    this.addUser({
-      firstName: 'Dariusz',
-      lastName: 'Okonski',
-      age: 42,
-      address: {
-        street: '7 Reed Way',
-        city: 'Slough',
-        state: 'West Berkshire'
-      }
-    })
+    setTimeout(() => {
+      this.users = [
+        {
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 30,
+          address: {
+            street: '50 Main st',
+            city: 'Boston',
+            state: 'Ma'
+          }
+        },
+        {
+          firstName: 'Kevin',
+          lastName: 'Johnson',
+          age: 34,
+          address: {
+            street: '20 School st',
+            city: 'Lynn',
+            state: 'MA'
+          }
+        },
+        {
+          firstName: 'Karen',
+          lastName: 'Williams',
+          age: 26,
+          address: {
+            street: '55 Mill st',
+            city: 'Miami',
+            state: 'FL'
+          }
+        }
+      ]
+      
+      this.loaded = true;
+    }, 2000);
+
+    // this.addUser({
+    //   firstName: 'Dariusz',
+    //   lastName: 'Okonski',
+    //   age: 42,
+    //   address: {
+    //     street: '7 Reed Way',
+    //     city: 'Slough',
+    //     state: 'West Berkshire'
+    //   }
+    // })
   }
 
   addUser(user: User) {
