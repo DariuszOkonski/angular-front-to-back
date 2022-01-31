@@ -20,7 +20,6 @@ export class UserComponent {
                 city: 'Boston',
                 state: 'MA'
             }
-        }
-        
+        }        
     }    
 }
