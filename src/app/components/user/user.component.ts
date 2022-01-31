@@ -7,16 +7,21 @@ import { Component } from "@angular/core";
 })
 
 export class UserComponent {
-    firstName: string = 'John';
-    lastName: string = 'Smith';
-    age: number = 42;
-    address = {
-        street: '50 Main st',
-        city: 'Boston',
-        state: 'MA'
-    }
+    firstName: string;
+    lastName: string;
+    age: number;
+    address;
 
     constructor() {
+        this.firstName = 'Dariusz';
+        this.lastName = 'Okonski';
+        this.age = 42;
+
+        this.address = {
+            street: '50 Main st',
+            city: 'Boston',
+            state: 'MA'
+        }
     }
 
     showAge(): number {
