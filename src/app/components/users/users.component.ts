@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
+  enableAdd: boolean = true;
 
   constructor() { 
     this.users = [];
@@ -28,7 +29,8 @@ export class UsersComponent implements OnInit {
             street: '50 Main st',
             city: 'Boston',
             state: 'Ma'
-          }
+          },
+          image: 'https://picsum.photos/seed/picsum/600/600'
         },
         {
           firstName: 'Kevin',
@@ -38,7 +40,8 @@ export class UsersComponent implements OnInit {
             street: '20 School st',
             city: 'Lynn',
             state: 'MA'
-          }
+          },
+          image: 'https://picsum.photos/600/600?grayscale'
         },
         {
           firstName: 'Karen',
@@ -48,7 +51,8 @@ export class UsersComponent implements OnInit {
             street: '55 Mill st',
             city: 'Miami',
             state: 'FL'
-          }
+          },
+          image: 'https://picsum.photos/600'
         }
       ]
       
