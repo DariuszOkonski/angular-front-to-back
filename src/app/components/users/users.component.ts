@@ -11,9 +11,11 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   loaded: boolean = false;
   enableAdd: boolean = true;
+  currentClasses: {};
 
   constructor() { 
     this.users = [];
+    this.currentClasses = {};
   }
 
   ngOnInit(): void {
@@ -30,7 +32,8 @@ export class UsersComponent implements OnInit {
             city: 'Boston',
             state: 'Ma'
           },
-          image: 'https://picsum.photos/seed/picsum/600/600'
+          image: 'https://picsum.photos/seed/picsum/600/600',
+          isActive: true,
         },
         {
           firstName: 'Kevin',
@@ -41,7 +44,8 @@ export class UsersComponent implements OnInit {
             city: 'Lynn',
             state: 'MA'
           },
-          image: 'https://picsum.photos/600/600?grayscale'
+          image: 'https://picsum.photos/600/600?grayscale',
+          isActive: false,
         },
         {
           firstName: 'Karen',
@@ -52,7 +56,8 @@ export class UsersComponent implements OnInit {
             city: 'Miami',
             state: 'FL'
           },
-          image: 'https://picsum.photos/600'
+          image: 'https://picsum.photos/600',
+          isActive: true,
         }
       ]
       
@@ -69,9 +74,18 @@ export class UsersComponent implements OnInit {
     //     state: 'West Berkshire'
     //   }
     // })
+
+    this.setCurrentClasses();
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentClasses() {
+    this.currentClasses = {
+      'btn-success': this.enableAdd,
+      'big-text': this.showExtended,
+    }
   }
 }
