@@ -30,7 +30,8 @@ export class UsersComponent implements OnInit {
             state: 'Ma'
           },
           isActive: true,
-          registered: new Date('01/02/2018 08:30:00')
+          registered: new Date('01/02/2018 08:30:00'),
+          hide: true,
         },
         {
           firstName: 'Kevin',
@@ -42,7 +43,8 @@ export class UsersComponent implements OnInit {
             state: 'MA'
           },
           isActive: false,
-          registered: new Date('03/11/2017 06:20:00')
+          registered: new Date('03/11/2017 06:20:00'),
+          hide: true,
         },
         {
           firstName: 'Karen',
@@ -54,7 +56,8 @@ export class UsersComponent implements OnInit {
             state: 'FL'
           },
           isActive: true,
-          registered: new Date('11/02/2016 10:30:00')
+          registered: new Date('11/02/2016 10:30:00'),
+          hide: true
         }
       ]
       
@@ -62,7 +65,24 @@ export class UsersComponent implements OnInit {
     }, 2000);
   }
 
-  addUser(user: User) {
+  addUser() {
+    const user = {
+      firstName: 'Bon',
+      lastName: 'Jovi',
+      age: 76,
+      address: {
+        street: '23 Mill st',
+        city: 'Cape Canaveral',
+        state: 'FL'
+      },
+      isActive: true,
+      registered: new Date('12/03/2018 10:30:00')
+    }
     this.users.push(user);
+
+  }
+
+  showAdditionalData() {
+    this.showExtended = !this.showExtended;
   }
 }
