@@ -76,7 +76,8 @@ export class UsersComponent implements OnInit {
         state: 'FL'
       },
       isActive: true,
-      registered: new Date('12/03/2018 10:30:00')
+      registered: new Date('12/03/2018 10:30:00'),
+      hide: true
     }
     this.users.push(user);
 
@@ -86,8 +87,8 @@ export class UsersComponent implements OnInit {
     this.showExtended = !this.showExtended;
   }
 
-  toggleHide(user: User) {
-    console.log(user)
-    user.hide = !user.hide
-  }
+  // toggleHide(user: User) {
+  //   console.log(user)
+  //   user.hide = !user.hide
+  // }
 }
