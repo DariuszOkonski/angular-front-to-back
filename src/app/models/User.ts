@@ -9,5 +9,5 @@ export interface User {
     },
     isActive?: boolean,
     registered?: any,
-    hide?: true,
+    hide?: boolean,
 }

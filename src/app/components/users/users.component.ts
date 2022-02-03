@@ -85,4 +85,9 @@ export class UsersComponent implements OnInit {
   showAdditionalData() {
     this.showExtended = !this.showExtended;
   }
+
+  toggleHide(user: User) {
+    console.log(user)
+    user.hide = !user.hide
+  }
 }
