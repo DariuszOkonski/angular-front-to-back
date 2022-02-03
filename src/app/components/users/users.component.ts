@@ -11,14 +11,13 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   loaded: boolean = false;
   enableAdd: boolean = true;
+  showUserForm: boolean = false;
 
   constructor() { 
     this.users = [];
   }
 
   ngOnInit(): void {
-
-    setTimeout(() => {
       this.users = [
         {
           firstName: 'John',
@@ -62,33 +61,39 @@ export class UsersComponent implements OnInit {
       ]
       
       this.loaded = true;
-    }, 2000);
   }
 
-  addUser() {
-    const user = {
-      firstName: 'Bon',
-      lastName: 'Jovi',
-      age: 76,
-      address: {
-        street: '23 Mill st',
-        city: 'Cape Canaveral',
-        state: 'FL'
-      },
-      isActive: true,
-      registered: new Date('12/03/2018 10:30:00'),
-      hide: true
-    }
-    this.users.push(user);
+  addUser(user: any): void {
+    console.log(user)
+
+    // const user1 = {
+    //   firstName: 'Bon',
+    //   lastName: 'Jovi',
+    //   age: 76,
+    //   address: {
+    //     street: '23 Mill st',
+    //     city: 'Cape Canaveral',
+    //     state: 'FL'
+    //   },
+    //   isActive: true,
+    //   registered: new Date('12/03/2018 10:30:00'),
+    //   hide: true
+    // }
+    // this.users.push(user1);
 
   }
 
-  showAdditionalData() {
+  showAdditionalData(): void {
     this.showExtended = !this.showExtended;
   }
 
-  // toggleHide(user: User) {
-  //   console.log(user)
-  //   user.hide = !user.hide
-  // }
+  onSubmit(event: any) {
+    event.preventDefault();
+    console.log('onSubmit')
+  }
+
+  fireEvent(event: any) {
+    console.log(event.type);
+    console.log(event.target.value);
+  }
 }
