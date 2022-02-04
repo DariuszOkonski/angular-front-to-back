@@ -87,9 +87,9 @@ export class UsersComponent implements OnInit {
     this.showExtended = !this.showExtended;
   }
 
-  onSubmit(event: any) {
+  onSubmit(event: Event) {
     event.preventDefault();
-    console.log('onSubmit')
+    console.log('onSubmit')    
   }
 
   fireEvent(event: any) {
