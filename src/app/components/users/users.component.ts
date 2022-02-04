@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from './../../models/User';
 
 @Component({
@@ -71,8 +72,8 @@ export class UsersComponent implements OnInit {
     this.showExtended = !this.showExtended;
   }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
+  onSubmit(userForm: NgForm) {
+    // event.preventDefault();
     this.addUser();   
   }
 }
