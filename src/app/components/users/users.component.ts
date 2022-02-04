@@ -7,10 +7,20 @@ import { User } from './../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: 0,
+    address: {
+      street: '',
+      city: '',
+      state: '',
+    },
+  };
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
-  enableAdd: boolean = true;
+  enableAdd: boolean = false;
   showUserForm: boolean = false;
 
   constructor() { 
@@ -63,24 +73,23 @@ export class UsersComponent implements OnInit {
       this.loaded = true;
   }
 
-  addUser(user: any): void {
-    console.log(user)
+  addUser(): void {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+    this.users.unshift(this.user);
 
-    // const user1 = {
-    //   firstName: 'Bon',
-    //   lastName: 'Jovi',
-    //   age: 76,
-    //   address: {
-    //     street: '23 Mill st',
-    //     city: 'Cape Canaveral',
-    //     state: 'FL'
-    //   },
-    //   isActive: true,
-    //   registered: new Date('12/03/2018 10:30:00'),
-    //   hide: true
-    // }
-    // this.users.push(user1);
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: 0,
+      address: {
+        street: '',
+        city: '',
+        state: '',
+      },
+    };
 
+    // this.showUserForm = false;
   }
 
   showAdditionalData(): void {
@@ -89,7 +98,7 @@ export class UsersComponent implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    console.log('onSubmit')    
+    this.addUser();   
   }
 
   fireEvent(event: any) {
