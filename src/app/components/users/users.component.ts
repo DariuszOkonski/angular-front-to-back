@@ -75,9 +75,4 @@ export class UsersComponent implements OnInit {
     event.preventDefault();
     this.addUser();   
   }
-
-  fireEvent(event: any) {
-    console.log(event.type);
-    console.log(event.target.value);
-  }
 }
