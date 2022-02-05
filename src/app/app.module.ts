@@ -12,12 +12,13 @@ import { UserService } from './services/user.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PostFormComponent } from './components/post-form/post-form.component';
 @NgModule({
   declarations: [
     AppComponent, 
     UserComponent, 
     UsersComponent, 
-    NavbarComponent, PostsComponent,
+    NavbarComponent, PostsComponent, PostFormComponent,
   ],
   imports: [
     BrowserModule,
