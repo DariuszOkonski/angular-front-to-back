@@ -8,17 +8,20 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DataService } from './services/data.service';
 @NgModule({
   declarations: [
     AppComponent, 
-    UserComponent, UsersComponent, NavbarComponent
+    UserComponent, 
+    UsersComponent, 
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

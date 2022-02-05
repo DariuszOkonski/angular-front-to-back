@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from './../../models/User';
+import { DataService } from './../../services/data.service';
 
 @Component({
   selector: 'app-users',
@@ -20,53 +21,16 @@ export class UsersComponent implements OnInit {
   showUserForm: boolean = false;
   @ViewChild('userForm') form: any;
 
-  constructor() { 
-    this.users = [];
+  constructor(
+    private dataService: DataService
+  ) { 
+    this.users = this.dataService.getUsers();
   }
 
   ngOnInit(): void {
-      this.users = [
-        {
-          firstName: 'John',
-          lastName: 'Doe',
-          email: 'john@gmail.com',
-          isActive: true,
-          registered: new Date('01/02/2018 08:30:00'),
-          hide: true,
-        },
-        {
-          firstName: 'Kevin',
-          lastName: 'Johnson',
-          email: 'kevin@gmail.com',
-          isActive: false,
-          registered: new Date('03/11/2017 06:20:00'),
-          hide: true,
-        },
-        {
-          firstName: 'Karen',
-          lastName: 'Williams',
-          email: 'karen@gmail.com',
-          isActive: true,
-          registered: new Date('11/02/2016 10:30:00'),
-          hide: true
-        }
-      ]
+      
       
       this.loaded = true;
-  }
-
-  addUser(): void {
-    this.user.isActive = true;
-    this.user.registered = new Date();
-    this.users.unshift(this.user);
-
-    this.user = {
-      firstName: '',
-      lastName: '',
-      email: '',
-    };
-
-    // this.showUserForm = false;
   }
 
   showAdditionalData(): void {
@@ -82,22 +46,10 @@ export class UsersComponent implements OnInit {
       value.isActive = true;
       value.registered = new Date();
       value.hide = true;
-      this.users.unshift(value);
 
+      this.dataService.addUser(value);
+      
       this.form.reset();
     }
   }
-
-  // onSubmit({ value, valid }: {value: User, valid: boolean}) {
-  //   if(!valid) {
-  //     console.log('Form is not valid')
-  //   } else {
-  //     value.isActive = true;
-  //     value.registered = new Date();
-  //     value.hide = true;
-  //     this.users.unshift(value);
-
-  //     this.form.reset();
-  //   }
-  // }
 }
