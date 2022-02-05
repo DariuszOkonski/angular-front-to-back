@@ -9,11 +9,19 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
+  currentPost: Post;
+  isEdit: boolean;
 
   constructor(
     private postService: PostService
   ) { 
     this.posts = [];
+    this.currentPost = {
+      id: 0,
+      title: '',
+      body: '',
+    };
+    this.isEdit = false;
   }
 
   ngOnInit(): void {
@@ -24,5 +32,10 @@ export class PostsComponent implements OnInit {
 
   onNewPost(post: Post) {
     this.posts.unshift(post)
+  }
+
+  editPost(post: Post) {
+    this.currentPost = post;
+    this.isEdit = true;
   }
 }
