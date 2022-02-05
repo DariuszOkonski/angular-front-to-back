@@ -13,12 +13,13 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent, 
     UserComponent, 
     UsersComponent, 
-    NavbarComponent, PostsComponent, PostFormComponent,
+    NavbarComponent, PostsComponent, PostFormComponent, HomeComponent,
   ],
   imports: [
     BrowserModule,
